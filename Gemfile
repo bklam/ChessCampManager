@@ -56,6 +56,9 @@ gem 'bcrypt-ruby', '3.1.5'
 # Use to help with authentication
 gem 'cancancan', '1.7.0'
 
+# Use for nested forms
+gem 'nested_form'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
