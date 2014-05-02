@@ -4,6 +4,9 @@ ChessCamp::Application.routes.draw do
   resources :instructors
   resources :camps
   resources :locations
+  resources :families
+  resources :students
+  resources :users
 
   # semi-static routes
   get 'home', to: 'home#index', as: :home
