@@ -3,7 +3,7 @@
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "families", locals: { status: "Active", families: @active_families } %>
     <p>&nbsp;</p>
-    <%= render :partial => "families", locals: {status: "Inactive", families: @inactive_families } %>
+    <%= render :partial => "inactive_families", locals: { status: "Inactive", families: @inactive_families } %>    
     <%= link_to "Add a new family", new_family_path, class: "button tiny radius" %>
   </div>
 

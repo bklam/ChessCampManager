@@ -4,8 +4,8 @@
     <% unless @upcoming_location_camps.empty? or @upcoming_location_camps.nil? %>
       <h5>Upcoming Camps At This Location</h5>
       <ul class="side-nav">
-        <% @upcoming_location_camps.each do |camp| %>
-          <li><%= link_to camp.name, camp_path(camp) %></li>
+        <% @upcoming_location_camps.chronological.alphabetical.each do |camp| %>
+          <li><%= link_to camp.name, camp_path(camp) %> <%= "Starting on #{camp.start_date.strftime('%m/%d/%y')}" %></li>
         <% end %>
       </ul>
     <% else %>
