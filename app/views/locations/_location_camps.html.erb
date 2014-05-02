@@ -1,0 +1,31 @@
+<% unless @location_camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+  <div class="panel clearfix">
+    <% unless @upcoming_location_camps.empty? or @upcoming_location_camps.nil? %>
+      <h5>Upcoming Camps At This Location</h5>
+      <ul class="side-nav">
+        <% @upcoming_location_camps.each do |camp| %>
+          <li><%= link_to camp.name, camp_path(camp) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No Upcoming Camps At This Location</p>
+    <% end %>
+    <br/>
+    <h5>Past Camps At This Location</h5>
+    <% unless @past_location_camps.nil? or @past_location_camps.empty? %>
+      <ul class="side-nav">
+        <% @past_location_camps.each do |camp| %>
+          <li><%= link_to camp.name, camp_path(camp) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No Past Camps At This Location</p>
+    <% end %>
+  </div>
+
+<% else %>
+  <div class="panel clearfix">
+    <h5>No Camps Available At This Location</h5>
+  </div>
+<% end %>
