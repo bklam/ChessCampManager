@@ -21,6 +21,12 @@ class Location < ActiveRecord::Base
   before_destroy :verify_that_never_used_for_camps
   before_validation :get_location_coordinates
 
+  def create_map_link(zoom=13,width=400,height=400)
+    i = 1
+    markers = "&markers=color:red%7Ccolor:red%7Clabel:#{i}%7C#{self.latitude},#{self.longitude}"
+    map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  end
+
   private
   def verify_that_never_used_for_camps
     self.camps.empty?
@@ -39,5 +45,4 @@ class Location < ActiveRecord::Base
     end
     coord
   end
-
 end

@@ -5,14 +5,11 @@
 <strong>Address:&nbsp;&nbsp;</strong> 
   <%= @location.street_1 + ((@location.street_2.nil?) ? "" : ", " + @location.street_2 + ",") + " " + @location.city + ", " + @location.state + " " + @location.zip %><br /><br />
 
-<strong>Max Capacity:&nbsp;&nbsp;</strong> 
+<strong>Maximum Capacity:&nbsp;&nbsp;</strong> 
   <%= @location.max_capacity %><br /><br />
 
-<strong>Latitude:&nbsp;&nbsp;</strong> 
-  <%= @location.latitude %><br /><br />
-
-<strong>Longitude:&nbsp;&nbsp;</strong> 
- <%= @location.longitude %><br /><br />
+<strong>Map:&nbsp;&nbsp;</strong>
+  <%= image_tag @location.create_map_link %><br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @location.active ? "Yes" : "No" %><br /><br />
