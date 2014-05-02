@@ -17,13 +17,12 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to @location, notice: "The location #{@location.name} at #{@location.street_1 + " " + @location.state + " " + @location.zip} was added to the system."
+      redirect_to @location, notice: "The #{@location.name} location was added to the system."
     else
       render action: 'new'
     end
@@ -31,7 +30,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to @location, notice: "The location #{@location.name} at #{@location.street_1 + " " + @location.state + " " + @location.zip} was revised in the system."
+      redirect_to @location, notice: "The #{@location.name} location was revised in the system."
     else
       render action: 'edit'
     end
@@ -39,7 +38,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: "The location #{@location.name} at #{@location.street_1 + " " + @location.state + " " + @location.zip} was removed from the system."
+    redirect_to locations_url, notice: "The #{@location.name} location was removed from the system."
   end
 
   private

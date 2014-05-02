@@ -3,7 +3,7 @@
   <%= @location.name %><br /><br />
 
 <strong>Address:&nbsp;&nbsp;</strong> 
-  <%= @location.street_1 + " " + @location.city + ", " + @location.state + " " + @location.zip %><br /><br />
+  <%= @location.street_1 + ((@location.street_2.nil?) ? "" : ", " + @location.street_2 + ",") + " " + @location.city + ", " + @location.state + " " + @location.zip %><br /><br />
 
 <strong>Max Capacity:&nbsp;&nbsp;</strong> 
   <%= @location.max_capacity %><br /><br />
