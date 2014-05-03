@@ -65,7 +65,6 @@ Feature: Manage student
     And I fill in "student_first_name" with "Subra"
     And I select "Hanson" from "student_family_id"
     And I fill in "student_rating" with "2000"
-    Then show me the page
     And I fill in "student_date_of_birth" with "05/01/2000"
     And I press "Create Student"
     Then I should see "Subra Suresh was added to the system"

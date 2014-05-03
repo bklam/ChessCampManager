@@ -59,6 +59,9 @@ gem 'cancancan', '1.7.0'
 # Use for nested forms
 gem 'nested_form'
 
+# Use for datepicker?
+gem 'jquery-ui-rails', '4.1.1'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'
