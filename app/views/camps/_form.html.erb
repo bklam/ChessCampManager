@@ -11,7 +11,7 @@
         <%= f.input :time_slot, collection: [['Morning','am'],['Afternoon','pm']], prompt: "Select time..." %>
         <%= f.input :location_id, collection: Location.active.alphabetical, prompt: "Select location..." %>
         <%= f.input :active %>
-      </div>r
+      </div>
       <div class="small-1 columns">&nbsp;</div>
       <div class="small-5 columns">
         <% if controller.action_name=="edit" && @camp.active %>

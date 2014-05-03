@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @camps = @student.camps.to_a
   end
 
   def new
