@@ -14,12 +14,15 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
-    #@user.instructor.build
+    @instructor.build_user
   end
 
   def edit
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
+    if @instructor.user.nil?
+      @instructor.build_user
+    end
   end
 
   def create
@@ -32,7 +35,7 @@ class InstructorsController < ApplicationController
   end
 
   def update
-    if @instructor.update(instructor_params)
+    if @instructor.update(instructor_params) and @instructor.user.save
       redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
     else
       render action: 'edit'
@@ -50,6 +53,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes:[:username, :password, :password_confirmation])
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes:[:id, :username, :password, :password_confirmation])
     end
 end

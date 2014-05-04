@@ -11,6 +11,7 @@ Feature: Manage User Accounts
   
   Scenario: An admin can add a user to an existing instructor
     When I go to edit Stafford's page
+    Then show me the page
     And I fill in "instructor_user_attributes_username" with "sbrunk"
     And I fill in "instructor_user_attributes_password" with "secret" 
     And I fill in "instructor_user_attributes_password_confirmation" with "secret"

@@ -5,7 +5,7 @@ class Family < ActiveRecord::Base
   has_many :students
   has_many :registrations, through: :students
 
-  accepts_nested_attributes_for :students, reject_if: lambda { |student| student[:first_name].blank? or student[:last_name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :students, reject_if: lambda { |student| (student[:first_name].blank? or student[:last_name].blank?) or (Student.all.include?(student)) }, allow_destroy: true
 
   # scopes
   scope :alphabetical, -> { order('family_name') }

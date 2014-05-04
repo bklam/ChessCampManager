@@ -7,7 +7,7 @@ class Instructor < ActiveRecord::Base
   has_many :camps, through: :camp_instructors
   has_one :user
 
-  accepts_nested_attributes_for :user, reject_if: lambda { |user| user[:username].blank? or user[:password].blank? or user[:password] != user[:password_confirmation] }, allow_destroy: false
+  accepts_nested_attributes_for :user
 
   # validations
   validates_presence_of :first_name, :last_name, :phone

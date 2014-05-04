@@ -37,7 +37,7 @@ class FamiliesController < ApplicationController
 
   def destroy
     @family.destroy
-    redirect_to families_url, notice: "The #{@family.family_name} family was removed from the system."
+    redirect_to families_url, notice: "Families cannot be removed from the system."
   end
 
   private
@@ -46,6 +46,6 @@ class FamiliesController < ApplicationController
     end
 
     def family_params
-      params.require(:family).permit(:family_name, :parent_first_name, :email, :phone, :active, students_attributes:[:first_name, :last_name, :date_of_birth, :rating, :active])
+      params.require(:family).permit(:family_name, :parent_first_name, :email, :phone, :active, students_attributes:[:id, :first_name, :last_name, :date_of_birth, :rating, :active])
     end
 end
