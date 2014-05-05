@@ -7,7 +7,7 @@ class Instructor < ActiveRecord::Base
   has_many :camps, through: :camp_instructors
   has_one :user
 
-  accepts_nested_attributes_for :user
+  accepts_nested_attributes_for :user, reject_if: :all_blank
 
   # validations
   validates_presence_of :first_name, :last_name, :phone
