@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # validations
   validates :username, presence: true, uniqueness: { case_sensitive: false}
-  #validates :role, inclusion: { in: %w[admin instructor], message: "is not a recognized role in system" }
+  validates :role, inclusion: { in: %w[admin instructor], message: "is not a recognized role in system" }
   validates_presence_of :password, on: :create 
   validates_presence_of :password_confirmation, on: :create 
   validates_confirmation_of :password, message: "does not match"

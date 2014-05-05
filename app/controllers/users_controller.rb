@@ -37,12 +37,12 @@ class UserController < ApplicationController
     redirect_to user_url, notice: "The user #{@user.username} was removed from the system"
   end
 
+  def user_params
+      params.require(:user).permit(:username, :password_digest, :instructor_id, :role, :active)
+  end
+  
   private
     def set_user
       @user = User.find(params[:id])
-    end
-
-    def user_params
-      params.require(:user).permit(:username, :password_digest, :instructor_id, :role, :active)
     end
 end

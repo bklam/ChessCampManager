@@ -27,7 +27,8 @@ class InstructorsController < ApplicationController
 
   def create
     @instructor = Instructor.new(instructor_params)
-    if @instructor.save
+    @user = User.new(params[:user_attributes])
+    if @instructor.save and @user.save
       redirect_to @instructor, notice: "#{@instructor.proper_name} was added to the system."
     else
       render action: 'new'
@@ -35,7 +36,12 @@ class InstructorsController < ApplicationController
   end
 
   def update
-    if @instructor.update(instructor_params) and @instructor.user.save
+    if @instructor.user.nil?
+      @user = User.new(params[:user_attributes])
+    else
+      @user = @instructor.user
+    end
+    if @instructor.update(instructor_params) and @user.update(params[:user_attributes])
       redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
     else
       render action: 'edit'
@@ -53,6 +59,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes:[:id, :username, :password, :password_confirmation])
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :active, user_attributes:[:id, :username, :password, :role, :password_confirmation])
     end
 end
