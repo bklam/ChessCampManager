@@ -19,6 +19,11 @@
       <%= @instructor.user.role %><br /><br />
 <% end %>
 
+<% if not @instructor.user.nil? %>
+    <strong>Username</strong><br />
+      <%= @instructor.user.username %><br /><br />
+<% end %>
+
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
 <%= link_to 'Destroy instructor', instructor_path(@instructor), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>

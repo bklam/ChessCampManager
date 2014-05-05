@@ -35,20 +35,10 @@ class InstructorsController < ApplicationController
   end
 
   def update
-    if @instructor.user.nil?
-      @user = User.new(params[:user_attributes])
-      if @instructor.update(instructor_params) and @user.save
-        redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
-      else
-        render action: 'edit'
-      end
+    if @instructor.update(instructor_params)
+      redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
     else
-      @user = @instructor.user
-      if @instructor.update(instructor_params) and @user.update(params[:user_attributes])
-        redirect_to @instructor, notice: "#{@instructor.proper_name} was revised in the system."
-      else
-        render action: 'edit'
-      end
+      render action: 'edit'
     end
   end
 
