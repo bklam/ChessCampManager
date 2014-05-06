@@ -4,14 +4,31 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     user ||= User.new # guest user (not logged in)
-    if user.admin?
+
+    # set authorizations for different user roles
+    if user.role? :admin
       can :manage, :all
     elsif user.role? :instructor
+      can :show, Instructor do |instructor|
+        instructor.id == user.instructor_id
+      end
+
       can :update, Instructor do |instructor|
         instructor.id == user.instructor_id
       end
+
+      can :read, Camp do |this_camp|
+        my_camps = user.instructor.camps.map(&:id)
+        my_camps.include? this_camp.id
+      end
+
+      can :read, Student do |this_student|
+        my_students = user.instructor.camps.map{|v| v.students.map{|c| c.id}}.flatten
+        my_students.include? this_student.id
+      end
     else
-      can :read, :all
+      can :read, Camp
+      can :read, Curriculum
     end
     #
     # The first argument to `can` is the action you are giving the user
