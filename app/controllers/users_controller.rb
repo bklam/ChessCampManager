@@ -28,7 +28,7 @@ class UserController < ApplicationController
     if @user.update(user_params)
       redirect_to @user, notice: "#{@user.instructor.proper_name} was revised to the system"
     else
-      redner action: 'edit'
+      render action: 'edit'
     end
   end
 
