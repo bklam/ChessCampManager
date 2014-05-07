@@ -1,3 +1,11 @@
+## Extra Features ##
+
+I added in a calendar to display the upcoming camps in a much more readable fashion. The calendar is automatically populated
+through the camps controller and using jbuilder to build a json feed that gets passed into the calendar. The calendar is
+based off of code from the gem FullCalendar.  The calendar is included in application.js. Any camps that are added into the
+system are then automatically populated in the calendar.
+
+
 ## 67-272: Chess Camp Phase 5 Starter ##
 
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
