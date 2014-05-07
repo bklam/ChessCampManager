@@ -38,6 +38,10 @@ class Camp < ActiveRecord::Base
     self.curriculum.name
   end
 
+  def better_name
+    "#{self.curriculum.name} (Starting on #{self.start_date} and ending on #{self.end_date})"
+  end
+
   def already_exists?
     Camp.where(time_slot: self.time_slot, start_date: self.start_date, location_id: self.location_id).size == 1
   end

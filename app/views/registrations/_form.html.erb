@@ -1,0 +1,19 @@
+<%= simple_form_for(@registration, html: { class: 'form-horizontal' }) do |f| %>
+       
+    <div class="row">
+      <div class="small-11 columns">
+        <h3><%= controller.action_name.capitalize %> Registration</h3>
+        <%= f.input :camp_id, collection: Camp.active.upcoming.alphabetical, label_method: :better_name, prompt: "Select camp..." %>
+        <%= f.input :student_id, collection: Student.active.alphabetical, label_method: :proper_name, prompt: "Select student..." %>
+        <%= f.input :payment_status, collection: [["Deposit", 'deposit'], ["Full", 'full']], prompt: "Select payment status..." %>
+        <%= f.input :points_earned %>
+      </div>
+      <div class="small-1 columns">&nbsp;</div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button radius' %>
+      <%= link_to 'Back to list of locations', locations_path, :class => 'button secondary radius' %>
+    </div>
+
+<% end %>
