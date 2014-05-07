@@ -32,11 +32,7 @@ $('#calendar').fullCalendar({
         alert('a day has been clicked!');
     },
 
-    events: [
-        {
-            title  : 'event1',
-            start  : '2014-05-07'
-        },
-    ]
+    events: '/camps.json'
+
 });
 
