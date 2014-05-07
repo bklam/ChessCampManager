@@ -12,3 +12,55 @@ body {
   font-size: 16px;
   margin: 0;
 }
+
+button, .button {
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 0;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  background-color: #4A97FF;
+  border-color: #4A97FF;
+  color: white;
+  transition: background-color 300ms ease-out;
+}
+
+a {
+  color: #4A97FF;
+  text-decoration: none;
+  line-height: inherit;
+}
+
+.panel {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFB24B;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #FFD9A6;
+  opacity: 0.95
+}
+
+.side-nav li a:not(.button) {
+  display: block;
+  color: #4A97FF;
+}
+
+button.alert, .button.alert {
+  background-color: #ff574a;
+  border-color: #ff574a;
+  color: white;
+}
