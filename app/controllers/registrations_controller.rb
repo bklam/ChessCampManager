@@ -19,7 +19,7 @@ class RegistrationsController < ApplicationController
     if @registration.save
       redirect_to camps_url, notice: "The registration for #{@registration.student.proper_name} to the #{@registration.camp.better_name} camp was added to the system."
     else
-      render action: 'new'
+      render action: 'new', notice: "The registration you made is invalid"
     end
   end
 
@@ -27,7 +27,7 @@ class RegistrationsController < ApplicationController
     if @registration.update(registration_params)
       redirect_to camps_url, notice: "The registration for #{@registration.student.proper_name} to the #{@registration.camp.better_name} camp was revised the system."
     else
-      render action: 'edit'
+      render action: 'edit', notice: "The registration you made is invalid"
     end
   end
 
