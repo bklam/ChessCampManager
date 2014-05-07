@@ -1,0 +1,14 @@
+body {
+            background: url('chess-pieces.jpg') no-repeat scroll;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            min-height: 700px;
+        }
+
+.top-bar-section ul {
+  height: auto;
+  display: block;
+  background: #F8F8F8;
+  font-size: 16px;
+  margin: 0;
+}

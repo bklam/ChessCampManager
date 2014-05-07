@@ -1028,8 +1028,8 @@ $panel-bg: scale-color(#B5E7F5, $lightness: 50%);
 // $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
-// $table-bg: #fff;
-$table-even-row-bg: #FAF2F0;
+$table-bg: #F8F8F8;
+$table-even-row-bg: #D6D6D6;
 
 // These control the table cell border style
 $table-border-style: none;
@@ -1146,14 +1146,14 @@ $topbar-dropdown-link-color: #000;
 // Set the link colors and styles for top-level nav
 $topbar-link-color: #000;
 $topbar-link-color-hover: #333;
-// $topbar-link-color-active: #fff;
-// $topbar-link-color-active-hover: #fff;
+$topbar-link-color-active: #fff;
+$topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-$topbar-link-font-size: rem-calc(12);
+$topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #F34C31;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: #FFB24B;
+$topbar-link-bg-active: #FFB24B;
+$topbar-link-bg-active-hover: scale-color(#FFB24B, $lightness: -14%);
 $topbar-link-font-family: 'Open Sans Condensed', sans-serif;
 
 // $topbar-button-font-size: 0.75rem;
