@@ -15,7 +15,6 @@
 //= require jquery.ui.all
 //= require jquery_nested_form
 //= require foundation
-//= require fullcalendar.min.js
 //= require fullcalendar.js
 
 $(function(){ $(document).foundation(); });
@@ -29,33 +28,15 @@ $(function() {
 
 // Calendar code
 $('#calendar').fullCalendar({
+    dayClick: function() {
+        alert('a day has been clicked!');
+    },
 
-    eventSources: [
-
-        // your event source
+    events: [
         {
-            events: [ // put the array in the `events` property
-                {
-                    title  : 'event1',
-                    start  : '2010-01-01'
-                },
-                {
-                    title  : 'event2',
-                    start  : '2010-01-05',
-                    end    : '2010-01-07'
-                },
-                {
-                    title  : 'event3',
-                    start  : '2010-01-09 12:30:00',
-                }
-            ],
-            color: 'black',     // an option!
-            textColor: 'yellow' // an option!
-        }
-
-        // any other event sources...
-
+            title  : 'event1',
+            start  : '2014-05-07'
+        },
     ]
-
 });
 
