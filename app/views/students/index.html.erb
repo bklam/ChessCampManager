@@ -1,11 +1,13 @@
 <div class="row">
   <div class="small-7 columns">
     <!-- MAIN CONTENT GOES HERE -->
-    <%= render :partial => "students", locals: { status: "Active", students: @active_students } %>
-    <p>&nbsp;</p>
-    <%= render :partial => "inactive_students", locals: { status: "Inactive", students: @inactive_students } %>
-    <br />
-    <%= link_to "Add a new student", new_student_path, class: "button tiny radius" %>
+    <div class="panel">
+      <%= render :partial => "students", locals: { status: "Active", students: @active_students } %>
+      <p>&nbsp;</p>
+      <%= render :partial => "inactive_students", locals: { status: "Inactive", students: @inactive_students } %>
+      <br />
+      <%= link_to "Add a new student", new_student_path, class: "button tiny radius" %>
+    </div>
   </div>
 
   <div class="small-1 columns">

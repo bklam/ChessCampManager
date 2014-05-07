@@ -1,6 +1,5 @@
 <h3><%= status %> Camps</h3>
 
-<div class="panel">
   <table class="table">
     <tr>
       <th width="260">Name</th>
@@ -20,7 +19,6 @@
     </tr>
   <% end %>
   </table>
-</div>
 <!-- Add the pagination using will_paginate gem -->
 <span class="paginate">
 <%= will_paginate camps, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
