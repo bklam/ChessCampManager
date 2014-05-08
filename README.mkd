@@ -1,9 +1,15 @@
 ## Extra Features ##
 
-I added in a calendar to display the upcoming camps in a much more readable fashion. The calendar is automatically populated
-through the camps controller and using jbuilder to build a json feed that gets passed into the calendar. The calendar is
-based off of code from the gem FullCalendar.  The calendar is included in application.js. Any camps that are added into the
-system are then automatically populated in the calendar.
+I added in a calendar to display the upcoming camps in a much more readable fashion. The calendar itself is built in javascript
+using FullCalendar, with all the required fullcalendar files included.  This calendar, however, also automatically gets automatically
+populated with data from the camps model.  In order to populate the calendar, I had to build a json feed in the form of an
+EventFeed object, as I read in the FullCalendar documentation.  As a result, using the Jbuilder gem that is already included
+in the gemfile, I wrote a file index.json.jbuilder in the camp views directory to generate JSON in the correct format dictated by 
+the FullCalendar documentation, but also populated with the correct information provided from the camps controller.  As a result,
+the calendar is automatically populated with any existing camp records, and will even update with the insertion of new records.
+
+
+I am also attempting to add in the javascript map stuff.. we'll see how that goes.
 
 
 ## 67-272: Chess Camp Phase 5 Starter ##
