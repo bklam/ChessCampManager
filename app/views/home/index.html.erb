@@ -1,4 +1,17 @@
   <% if !(current_user.nil?) and current_user.role == "admin" %>
+    <div class = "row">
+        <div class = "small-6 columns">
+            <div class="panel">
+              <%= render :partial => "instructor_details" %>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <div class="panel">
+              <%= render :partial => "upcoming_camps" %></br>
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
   <% elsif !(current_user.nil?) and current_user.role == "instructor" %>
     <div class = "row">
         <div class = "small-6 columns">
