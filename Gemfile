@@ -62,6 +62,10 @@ gem 'nested_form'
 # Use for datepicker?
 gem 'jquery-ui-rails', '4.1.1'
 
+# Use for javascript map
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets'

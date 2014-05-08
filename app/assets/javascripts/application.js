@@ -16,6 +16,8 @@
 //= require jquery_nested_form
 //= require foundation
 //= require fullcalendar.js
+//= require underscore
+//= require gmaps/google
 
 $(function(){ $(document).foundation(); });
 
@@ -36,3 +38,39 @@ $('#calendar').fullCalendar({
 
 });
 
+// Javascript map code
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+
+function calcRoute() {
+  var origin      = new google.maps.LatLng(41.850033, -87.6500523);
+  var destination = new google.maps.LatLng(42.850033, -85.6500523);
+  var request = {
+      origin:      origin,
+      destination: destination,
+      travelMode:  google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+calcRoute();
+
+function gmap(lat, lng) {
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": lat,
+      "lng": lng,
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(15);
+
+});
+};
