@@ -9,7 +9,10 @@ the FullCalendar documentation, but also populated with the correct information 
 the calendar is automatically populated with any existing camp records, and will even update with the insertion of new records.
 
 
-I am also attempting to add in the javascript map stuff.. we'll see how that goes.
+I have also added in the fully enabled javascript map for locations, so please take a look.
+
+Thanks! 
+Ben
 
 
 ## 67-272: Chess Camp Phase 5 Starter ##
