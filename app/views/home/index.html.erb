@@ -1,7 +1,21 @@
-<div class="panel">
-  <% if not(current_user.nil?) and current_user.role == "admin" %>
-  <% elsif not(current_user.nil?) and current_user.role == "instructor" %>
+  <% if !(current_user.nil?) and current_user.role == "admin" %>
+  <% elsif !(current_user.nil?) and current_user.role == "instructor" %>
+    <div class = "row">
+        <div class = "small-6 columns">
+            <div class="panel">
+              <%= render :partial => "instructor_details" %>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <div class="panel">
+              <%= render :partial => "upcoming_camps" %></br>
+                <div id="calendar"></div>
+            </div>
+        </div>
+    </div>
   <% else %>
+  <div class="panel">
+
     <h2>Welcome Chess Parents!</h2>
 
     <p><%= image_tag 'AlexPlaying10.jpg', class: "left", width: "150" %> The A &amp; M 
@@ -19,6 +33,7 @@
     </br>
 
     <p>If you are an administrator (don't lie), <%= link_to "click here to review camps.", camps_path %></p>
+    </div>
+
 <% end %>
-</div>
 
