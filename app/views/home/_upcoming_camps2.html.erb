@@ -1,0 +1,17 @@
+<% unless @personal_upcoming_camps.empty? %>
+  <!-- <h3>&nbsp;</h3> -->
+    <h5>Upcoming Camps and Instructors</h5>
+    <ul>
+      <% @personal_upcoming_camps.each do |camp| %>
+        <li><%= link_to camp.name, camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>)
+            <ul>
+                <% camp.instructors.each do |instructor| %>
+                  <li><%= link_to instructor.proper_name, instructor_path(instructor) %>
+                <% end %>
+            </ul>
+        </li>
+      <% end %>
+   </ul>
+<% else %>
+    <h3>You have no upcoming camps... slacker</h3>
+<% end %>

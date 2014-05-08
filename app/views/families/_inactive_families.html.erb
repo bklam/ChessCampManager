@@ -1,23 +1,16 @@
-<h3><%= status %> Families</h3>
-
-<table class="table">
-  <tr>
-    <th width="260">Family Name</th>
-    <th width="120">Email</th>
-    <th width="400">Phone</th>
-    <th></th>
-  </tr>
-
-<% families.each do |family| %>
-  <tr>
-    <td><%= link_to family.family_name, family_path(family) %></td>
-    <td align="center"><%= family.email %></td>
-    <td align="center"><%= family.phone %></td>
-    <td><%= link_to 'Edit', edit_family_path(family), class: "button tiny radius" %></td>
-  </tr>
+<% unless @inactive_families.empty? %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>Inactive Families</h5>
+    <ul class="side-nav">
+      <% @inactive_families.each do |family| %>
+        <li><%= link_to family.name, family_path(family) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>No Inactive Families</h5>
+  </div>
 <% end %>
-</table>
-<!-- Add the pagination using will_paginate gem -->
-<span class="paginate">
-<%= will_paginate families, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>

@@ -1,27 +1,16 @@
-<h3><%= status %> Students</h3>
-
-<table class="table">
-  <tr>
-    <th width="300">Name</th>
-    <th width="120">Date Of Birth</th>
-    <th width="120">Age</th>
-    <th width="120">Rating</th>
-    <th width="120">Family</th>
-    <th></th>
-  </tr>
-
-<% students.each do |student| %>
-  <tr>
-    <td align="center"><%= link_to student.name, student_path(student) %></td>
-    <td align="center"><%= student.date_of_birth.strftime('%m/%d/%Y') %></td>
-    <td align="center"><%= student.age %></td>
-    <td align="center"><%= student.rating == 0 ? "Unrated" : student.rating %></td>
-    <td align="center"><%= link_to student.family.family_name, family_path(student.family.family_name) %></td>
-    <td><%= link_to 'Edit', edit_student_path(student), class: "button tiny radius" %></td>
-  </tr>
+<% unless @inactive_students.empty? %>
+  <h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>Inactive Students</h5>
+    <ul class="side-nav">
+      <% @inactive_students.each do |student| %>
+        <li><%= link_to student.name, student_path(student) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+<h3>&nbsp;</h3>
+  <div class="panel clearfix">
+    <h5>No Inactive Students</h5>
+  </div>
 <% end %>
-</table>
-<!-- Add the pagination using will_paginate gem -->
-<span class="paginate">
-<%= will_paginate students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>
