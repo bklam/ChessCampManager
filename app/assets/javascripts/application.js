@@ -15,9 +15,10 @@
 //= require jquery.ui.all
 //= require jquery_nested_form
 //= require foundation
-//= require fullcalendar.js
 //= require underscore
 //= require gmaps/google
+//= require fullcalendar.js
+
 
 $(function(){ $(document).foundation(); });
 
@@ -29,35 +30,16 @@ $(function() {
 });
 
 // Calendar code
-$('#calendar').fullCalendar({
-    dayClick: function() {
-        alert('a day has been clicked!');
-    },
-
-    events: '/camps.json'
-
-});
-
-// Javascript map code
-var directionsDisplay = new google.maps.DirectionsRenderer();
-var directionsService = new google.maps.DirectionsService();
-
-function calcRoute() {
-  var origin      = new google.maps.LatLng(41.850033, -87.6500523);
-  var destination = new google.maps.LatLng(42.850033, -85.6500523);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
+$(function() {
+  $('#calendar').fullCalendar({
+      dayClick: function() {
+          alert('a day has been clicked!');
+      }, 
+  
+      events: '/camps.json'
+  
   });
-}
-
-calcRoute();
+});
 
 function gmap(lat, lng) {
 handler = Gmaps.build('Google');
